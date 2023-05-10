@@ -603,9 +603,7 @@ class LarapexChart
                 'text' => $this->subtitle() ? $this->subtitle() : '',
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
-            'xaxis' => [
-                'categories' => json_decode($this->xAxis()),
-            ],
+            
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
