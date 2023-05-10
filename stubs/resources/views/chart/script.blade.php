@@ -30,14 +30,14 @@
         xaxis: {
             categories: {!! $chart->xAxis() !!}
         },
-        scales: {
+        options : {scales: {
             x: {
                 type: 'time',
                 time: {
-                    unit: 'month'
+                    unit: 'hour'
                 }
             }
-        },
+        }},
         grid: {!! $chart->grid() !!},
         markers: {!! $chart->markers() !!},
         @if($chart->stroke())
