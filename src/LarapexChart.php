@@ -426,7 +426,7 @@ class LarapexChart
      */
     public function scales()
     {
-        return $this->scales();
+        return $this->scales;
     }
 
     
