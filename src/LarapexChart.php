@@ -515,7 +515,7 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'categories' => json_decode($this->xAxis()),
+                'time' => json_decode($this->xAxis()),
                 'ticks' => ['maxTicksLimit'=> 6, 'autoSkip'=> true,]
             ],
             'grid' => json_decode($this->grid()),
@@ -565,7 +565,7 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'categories' => json_decode($this->xAxis()),
+                'time' => json_decode($this->xAxis()),
                 'ticks' => ['maxTicksLimit'=> 6]
             ],
             'grid' => json_decode($this->grid()),
