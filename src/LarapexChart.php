@@ -515,8 +515,9 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'time' => json_decode($this->xAxis()),
-                'ticks' => ['maxTicksLimit'=> 6, 'autoSkip'=> true,]
+                'type'=> 'time',
+                'time' => ['unit' => 'hour'],
+                'ticks' => ['maxTicksLimit'=> 6]
             ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
@@ -565,7 +566,8 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'time' => json_decode($this->xAxis()),
+                'type'=> 'time',
+                'time' => ['unit' => 'hour'],
                 'ticks' => ['maxTicksLimit'=> 6]
             ],
             'grid' => json_decode($this->grid()),
