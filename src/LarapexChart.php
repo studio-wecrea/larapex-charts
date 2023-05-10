@@ -522,7 +522,9 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'scales' => json_decode($this->scales()) ,
+            'options' => [
+                'scales' => json_decode($this->scales()) ,
+            ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
@@ -568,7 +570,9 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'scales' => json_decode($this->scales()) ,
+            'options' => [
+                'scales' => json_decode($this->scales()) ,
+            ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
