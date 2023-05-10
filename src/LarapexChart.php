@@ -29,6 +29,7 @@ class LarapexChart
     protected $colors;
     protected $horizontal;
     protected $xAxis;
+    protected $personalizedAxis;
     protected $grid;
     protected $markers;
     protected $stroke;
@@ -195,6 +196,13 @@ class LarapexChart
         $this->xAxis = json_encode($categories);
         return $this;
     }
+
+    public function setPersonalizedAxis($unit) 
+    {
+        $this->personalizedAxis = json_encode(['unit' => $unit]);
+        return $this;
+    }
+    
 
     public function setGrid($color = '#e5e5e5', $opacity = 0.1) :LarapexChart
     {
@@ -410,6 +418,15 @@ class LarapexChart
     }
 
     /**
+     * @return string
+     */
+    public function personalizedAxis()
+    {
+        return $this->personalizedAxis;
+    }
+
+    
+    /**
      * @return false|string
      */
     public function grid()
@@ -504,6 +521,11 @@ class LarapexChart
             'markers' => json_decode($this->markers()),
         ];
 
+        if($this->personalizedAxis())
+        {
+            
+            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
+        }
         if($this->labels()) {
             $options['labels'] = $this->labels();
         }
@@ -547,6 +569,12 @@ class LarapexChart
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
+
+        if($this->personalizedAxis())
+        {
+            
+            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
+        }
 
         if($this->labels()) {
             $options['labels'] = $this->labels();
