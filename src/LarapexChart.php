@@ -522,8 +522,9 @@ class LarapexChart
             ],
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
+                'tickAmount'=> 6
             ],
-            'options' => json_decode($this->option()),
+            
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
@@ -568,8 +569,8 @@ class LarapexChart
             ],
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
+                'tickAmount'=> 6
             ],
-            'options' => json_decode($this->option()),
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
