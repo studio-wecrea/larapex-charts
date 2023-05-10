@@ -52,7 +52,7 @@ class LarapexChart
         $this->id = substr(str_shuffle(str_repeat($x = $this->chartLetters, ceil(25 / strlen($x)))), 1, 25);
         $this->horizontal = json_encode(['horizontal' => false]);
         $this->colors = json_encode(config('larapex-charts.colors'));
-        $this->setXAxis([]);
+        
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
@@ -555,8 +555,7 @@ class LarapexChart
             $options['xaxis']['time']['unit'] = $this->personalizedAxis();
             $options['xaxis']['time']['displayFormats'] = "HH";
 
-            $options['xaxis']['ticks']['autoSkip'] = true;
-            $options['xaxis']['ticks']['maxTicksLimit'] = 6;
+            $options['xaxis']['tickAmount'] = 6;
         }
 
         if($this->begin())
@@ -603,23 +602,24 @@ class LarapexChart
                 'text' => $this->subtitle() ? $this->subtitle() : '',
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
-            
+            'xaxis' => [
+                'categories' => json_decode($this->xAxis()),
+            ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
         if($this->personalizedAxis())
         {
-            $options['xaxis']['type']= 'time';
-            $options['xaxis']['time']['unit'] = $this->personalizedAxis();
-            $options['xaxis']['time']['displayFormats'] = "HH";
+            $options['scales']['x']['type']= 'time';
+            $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
 
-            $options['xaxis']['ticks']['autoSkip'] = true;
-            $options['xaxis']['ticks']['maxTicksLimit'] = 6;
+            $options['xaxis']['tickAmount'] = 6;
         }
+
         if($this->begin())
         {
-            $options['xaxis']['min'] = $this->begin(); 
+            $options['scales']['x']['min'] = $this->begin(); 
         }
         if($this->labels()) {
             $options['labels'] = $this->labels();
@@ -628,7 +628,7 @@ class LarapexChart
         if($this->stroke()) {
             $options['stroke'] = json_decode($this->stroke());
         }
-        var_dump($options);
+        
         return [
             'height' => $this->height(),
             'width' => $this->width(),
