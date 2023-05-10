@@ -53,7 +53,7 @@ class LarapexChart
         $this->colors = json_encode(config('larapex-charts.colors'));
         $this->setXAxis([]);
         $this->setScales();
-        $this->options(json_encode($this->scales()));
+        $this->options = json_encode($this->scales());
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
