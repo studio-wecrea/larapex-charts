@@ -2,7 +2,6 @@
     "name": "studio-wecrea/larapex-charts",
     "description": "Package to provide easy api to build apex charts on Laravel",
     "keywords": [
-        "arielmejiadev",
         "larapex",
         "charts",
         "apexcharts",
@@ -13,8 +12,9 @@
     "type": "library",
     "authors": [
         {
-            "name": "ArielMejiaDev",
-            "email": "arielmejiadev@gmail.com"
+            "name": "wecrea",
+            "email": "hello+github@wecrea.com",
+            "homepage": "https://wecrea.com"
         }
     ],
     "require": {
