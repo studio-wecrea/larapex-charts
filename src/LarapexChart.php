@@ -51,6 +51,7 @@ class LarapexChart
         $this->horizontal = json_encode(['horizontal' => false]);
         $this->colors = json_encode(config('larapex-charts.colors'));
         $this->setXAxis([]);
+        $this->setScales();
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
@@ -197,7 +198,7 @@ class LarapexChart
         return $this;
     }
 
-    public function setScales($unit) : LarapexChart
+    public function setScales() :LarapexChart
     {
         $this->scales = json_encode(['x' => [
             'type'=> 'time',
