@@ -29,7 +29,7 @@ class LarapexChart
     protected $colors;
     protected $horizontal;
     protected $xAxis;
-    protected $personalizedAxis;
+    protected $scales;
     protected $grid;
     protected $markers;
     protected $stroke;
@@ -197,9 +197,13 @@ class LarapexChart
         return $this;
     }
 
-    public function setPersonalizedAxis($unit) 
+    public function setScales($unit) : LarapexChart
     {
-        $this->personalizedAxis = json_encode(['unit' => $unit]);
+        $this->scales = json_encode(['x' => [
+            'type'=> 'time',
+            'time' => [
+                'unit'=> 'hour']
+            ]]);
         return $this;
     }
     
@@ -420,9 +424,9 @@ class LarapexChart
     /**
      * @return string
      */
-    public function personalizedAxis()
+    public function scales()
     {
-        return $this->personalizedAxis;
+        return $this->scales();
     }
 
     
@@ -517,22 +521,12 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'scales' => [
-                'x' => [
-                    'type'=> 'time',
-                    'time' => [
-                        'unit'=> 'hour']
-                    ],
-                ],  
+            'scales' => json_decode($this->scales()) ,
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
-        if($this->personalizedAxis())
-        {
-            
-            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
-        }
+
         if($this->labels()) {
             $options['labels'] = $this->labels();
         }
@@ -573,22 +567,11 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'scales' => [
-                'x' => [
-                    'type'=> 'time',
-                    'time' => [
-                        'unit'=> 'hour']
-                    ],
-                ],  
+            'scales' => json_decode($this->scales()) ,
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
-        if($this->personalizedAxis())
-        {
-            
-            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
-        }
 
         if($this->labels()) {
             $options['labels'] = $this->labels();
