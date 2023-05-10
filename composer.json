@@ -1,11 +1,12 @@
 {
-    "name": "arielmejiadev/larapex-charts",
+    "name": "studio-wecrea/larapex-charts",
     "description": "Package to provide easy api to build apex charts on Laravel",
     "keywords": [
         "arielmejiadev",
         "larapex",
         "charts",
-        "apexcharts"
+        "apexcharts",
+        "studio-wecrea"
     ],
     "homepage": "https://larapex-charts.netlify.app/",
     "license": "MIT",
