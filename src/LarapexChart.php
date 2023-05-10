@@ -38,8 +38,6 @@ class LarapexChart
     protected $dataLabels;
     protected $sparkline;
     private $chartLetters = 'abcdefghijklmnopqrstuvwxyz';
-    protected $begin;
-    protected $end;
 
     /*
     |--------------------------------------------------------------------------
@@ -271,17 +269,6 @@ class LarapexChart
         return $this;
     }
 
-    public function setBegin(string $timestamp)
-    {
-        $this->begin = $timestamp;
-        return $this;
-    }
-
-    public function setEnd(string $timestamp)
-    {
-        $this->end = $timestamp;
-        return $this;
-    }
     /*
     |--------------------------------------------------------------------------
     | Getters
@@ -438,21 +425,6 @@ class LarapexChart
         return $this->personalizedAxis;
     }
 
-    /**
-     * @return string
-     */
-    public function begin()
-    {
-        return $this->begin;
-    }
-
-    /**
-     * @return string
-     */
-    public function end()
-    {
-        return $this->end;
-    }
     
     /**
      * @return false|string
@@ -543,18 +515,13 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'timestamp' => json_decode($this->xAxis()),
+                'categories' => json_decode($this->xAxis()),
             ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
         if($this->personalizedAxis())
-        {
-            
-            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
-        }
-        if($this->begin())
         {
             
             $options['xaxis']['time'] = json_decode($this->personalizedAxis());
@@ -597,7 +564,7 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'time' => json_decode($this->xAxis()),
+                'categories' => json_decode($this->xAxis()),
             ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
