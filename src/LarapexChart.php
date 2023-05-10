@@ -607,7 +607,7 @@ class LarapexChart
 
         if($this->personalizedAxis())
         {
-            
+            $options['xaxis']['type']="time";
             $options['xaxis']['time']['unit'] = $this->personalizedAxis();
         }
         if($this->begin())
