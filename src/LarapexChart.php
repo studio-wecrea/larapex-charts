@@ -52,7 +52,7 @@ class LarapexChart
         $this->id = substr(str_shuffle(str_repeat($x = $this->chartLetters, ceil(25 / strlen($x)))), 1, 25);
         $this->horizontal = json_encode(['horizontal' => false]);
         $this->colors = json_encode(config('larapex-charts.colors'));
-        
+        $this->setXAxis([]);
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
@@ -201,7 +201,7 @@ class LarapexChart
 
     public function setPersonalizedAxis($unit) 
     {
-        $this->personalizedAxis =  $unit;
+        $this->personalizedAxis = json_encode(['unit' => $unit]);
         return $this;
     }
     
@@ -542,21 +542,23 @@ class LarapexChart
                 'text' => $this->subtitle() ? $this->subtitle() : '',
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
+            'xaxis' => [
+                'timestamp' => json_decode($this->xAxis()),
+                'ticks' => ['maxTicksLimit'=> 3],
+            ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
         if($this->personalizedAxis())
         {
-            $options['scales']['x']['type']= 'time';
-            $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
-
-            $options['scales']['x']['ticks']['stepSize'] = 6;
+            
+            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
         }
-
         if($this->begin())
         {
-            array_push($options['xaxis'],json_decode($this->begin())); 
+            
+            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
         }
         if($this->labels()) {
             $options['labels'] = $this->labels();
@@ -566,13 +568,10 @@ class LarapexChart
             $options['stroke'] = json_decode($this->stroke());
         }
 
-        var_dump($options);
         return response()->json([
             'id' => $this->id(),
             'options' => $options,
         ]);
-
-        
     }
 
     public function toVue() :array
@@ -599,7 +598,8 @@ class LarapexChart
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
             'xaxis' => [
-                'categories' => json_decode($this->xAxis()),
+                'timestamp' => json_decode($this->xAxis()),
+                'ticks' => ['maxTicksLimit'=> 3],
             ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
@@ -607,16 +607,10 @@ class LarapexChart
 
         if($this->personalizedAxis())
         {
-            $options['scales']['x']['type']= 'time';
-            $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
-
-            $options['scales']['x']['tickAmount'] = 6;
+            
+            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
         }
 
-        if($this->begin())
-        {
-            $options['scales']['x']['min'] = $this->begin(); 
-        }
         if($this->labels()) {
             $options['labels'] = $this->labels();
         }
@@ -624,7 +618,7 @@ class LarapexChart
         if($this->stroke()) {
             $options['stroke'] = json_decode($this->stroke());
         }
-        
+
         return [
             'height' => $this->height(),
             'width' => $this->width(),
