@@ -551,7 +551,7 @@ class LarapexChart
             $options['scales']['x']['type']= 'time';
             $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
 
-            $options['scales']['x']['tickAmount'] = 6;
+            $options['scales']['x']['ticks']['stepSize'] = 6;
         }
 
         if($this->begin())
