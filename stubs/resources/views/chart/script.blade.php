@@ -27,9 +27,7 @@
             text: '{!! $chart->subtitle() !!}',
             align: '{!! $chart->subtitlePosition() !!}'
         },
-        xaxis: {
-            categories: {!! $chart->xAxis() !!}
-        },
+        
         options : {scales: {
             x: {
                 type: 'time',
