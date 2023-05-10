@@ -52,8 +52,7 @@ class LarapexChart
         $this->horizontal = json_encode(['horizontal' => false]);
         $this->colors = json_encode(config('larapex-charts.colors'));
         $this->setXAxis([]);
-        $this->setScales();
-        $this->options = json_encode($this->scales());
+        $this->setOption();
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
@@ -200,13 +199,13 @@ class LarapexChart
         return $this;
     }
 
-    public function setScales() :LarapexChart
+    public function setOption() :LarapexChart
     {
-        $this->scales = json_encode(['x' => [
+        $this->options = json_encode(['scales'=>['x' => [
             'type'=> 'time',
             'time' => [
                 'unit'=> 'hour']
-            ]]);
+            ]]]);
         return $this;
     }
     
@@ -427,9 +426,9 @@ class LarapexChart
     /**
      * @return string
      */
-    public function scales()
+    public function option()
     {
-        return $this->scales;
+        return $this->options;
     }
 
     
@@ -524,9 +523,7 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'options' => [
-                'scales' => json_decode($this->scales()) ,
-            ],
+            'options' => json_decode($this->option()),
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
@@ -572,9 +569,7 @@ class LarapexChart
             'xaxis' => [
                 'categories' => json_decode($this->xAxis()),
             ],
-            'options' => [
-                'scales' => json_decode($this->scales()) ,
-            ],
+            'options' => json_decode($this->option()),
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
