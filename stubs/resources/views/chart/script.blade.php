@@ -29,7 +29,11 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
-            tickAmount: 6
+            ticks: {
+                stepSize: 6,
+                minRotation: 60,
+                maxRotation: 60
+                }
         },
         grid: {!! $chart->grid() !!},
         markers: {!! $chart->markers() !!},
