@@ -542,20 +542,16 @@ class LarapexChart
                 'text' => $this->subtitle() ? $this->subtitle() : '',
                 'align' => $this->subtitlePosition() ? $this->subtitlePosition() : '',
             ],
-            'xaxis' => [
-                'categories' => json_decode($this->xAxis()),
-            ],
             'grid' => json_decode($this->grid()),
             'markers' => json_decode($this->markers()),
         ];
 
         if($this->personalizedAxis())
         {
-            $options['xaxis']['type']= 'time';
-            $options['xaxis']['time']['unit'] = $this->personalizedAxis();
-            $options['xaxis']['time']['displayFormats'] = "HH";
+            $options['scales']['x']['type']= 'time';
+            $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
 
-            $options['xaxis']['tickAmount'] = 6;
+            $options['scales']['x']['tickAmount'] = 6;
         }
 
         if($this->begin())
@@ -614,7 +610,7 @@ class LarapexChart
             $options['scales']['x']['type']= 'time';
             $options['scales']['x']['time']['unit'] = $this->personalizedAxis();
 
-            $options['xaxis']['tickAmount'] = 6;
+            $options['scales']['x']['tickAmount'] = 6;
         }
 
         if($this->begin())
