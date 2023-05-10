@@ -201,7 +201,7 @@ class LarapexChart
 
     public function setPersonalizedAxis($unit) 
     {
-        $this->personalizedAxis = json_encode(['unit' => $unit]);
+        $this->personalizedAxis =  $unit;
         return $this;
     }
     
@@ -273,13 +273,13 @@ class LarapexChart
 
     public function setBegin(string $timestamp)
     {
-        $this->begin = json_encode(['min' => $timestamp]);
+        $this->begin = $timestamp;
         return $this;
     }
 
     public function setEnd(string $timestamp)
     {
-        $this->end = json_encode(['max' => $timestamp]);
+        $this->end = $timestamp;
         return $this;
     }
     /*
@@ -566,7 +566,7 @@ class LarapexChart
             $options['stroke'] = json_decode($this->stroke());
         }
 
-        var_dump($options);
+
         return response()->json([
             'id' => $this->id(),
             'options' => $options,
@@ -608,11 +608,11 @@ class LarapexChart
         if($this->personalizedAxis())
         {
             
-            $options['xaxis']['time'] = json_decode($this->personalizedAxis());
+            $options['xaxis']['time']['unit'] = $this->personalizedAxis();
         }
         if($this->begin())
         {
-            array_push($options['xaxis'],json_decode($this->begin())); 
+            $options['xaxis']['min'] = $this->begin(); 
         }
         if($this->labels()) {
             $options['labels'] = $this->labels();
@@ -622,7 +622,7 @@ class LarapexChart
             $options['stroke'] = json_decode($this->stroke());
         }
 
-        var_dump($options);
+
         return [
             'height' => $this->height(),
             'width' => $this->width(),
