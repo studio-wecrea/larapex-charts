@@ -28,7 +28,7 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         xaxis: {
-            categories: {!! $chart->xAxis() !!}
+            categories: {!! $chart->xAxis() !!},
             tickAmount: 6
         },
         grid: {!! $chart->grid() !!},
