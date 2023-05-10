@@ -571,7 +571,7 @@ class LarapexChart
             $options['stroke'] = json_decode($this->stroke());
         }
 
-
+        var_dump($options);
         return response()->json([
             'id' => $this->id(),
             'options' => $options,
@@ -630,7 +630,7 @@ class LarapexChart
         if($this->stroke()) {
             $options['stroke'] = json_decode($this->stroke());
         }
-
+        var_dump($options);
         return [
             'height' => $this->height(),
             'width' => $this->width(),
