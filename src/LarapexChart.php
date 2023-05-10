@@ -607,8 +607,12 @@ class LarapexChart
 
         if($this->personalizedAxis())
         {
-            $options['xaxis']['type']="time";
+            $options['xaxis']['type']= 'time';
             $options['xaxis']['time']['unit'] = $this->personalizedAxis();
+            $options['xaxis']['time']['displayFormats'] = "HH";
+
+            $options['xaxis']['ticks']['autoSkip'] = true;
+            $options['xaxis']['ticks']['maxTicksLimit'] = 6;
         }
         if($this->begin())
         {
