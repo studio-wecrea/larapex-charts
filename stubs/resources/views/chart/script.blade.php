@@ -27,15 +27,10 @@
             text: '{!! $chart->subtitle() !!}',
             align: '{!! $chart->subtitlePosition() !!}'
         },
-        
-        options : {scales: {
-            x: {
-                type: 'time',
-                time: {
-                    unit: 'hour'
-                }
-            }
-        }},
+        xaxis: {
+            categories: {!! $chart->xAxis() !!}
+            tickAmount: 6
+        },
         grid: {!! $chart->grid() !!},
         markers: {!! $chart->markers() !!},
         @if($chart->stroke())
