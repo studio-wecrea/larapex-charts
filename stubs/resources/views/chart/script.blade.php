@@ -31,8 +31,12 @@
             categories: {!! $chart->xAxis() !!},
             tooltip: {
                 formatter: function(val, opts) {
-                    console.log(value, opts)
-                return val 
+                    if(value)
+                    {
+                        console.log(value, opts)
+                return value 
+                    }
+                    
             }
         },
             labels: {
