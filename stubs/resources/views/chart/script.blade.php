@@ -30,10 +30,10 @@
         xaxis: {
             categories: {!! $chart->xAxis() !!},
             @if($chart->tickAmount())
-            tickAmount: 7,
+            tickAmount: {!! $chart->tickAmount() !!},
             @endif
             @if($chart->tickInterval()) // Since we want 6 intervals, set tickAmount to 7 (including both ends)
-            tickInterval: 60 
+            tickInterval: {!! $chart->tickInterval() !!} 
             @endif
         },
         grid: {!! $chart->grid() !!},
