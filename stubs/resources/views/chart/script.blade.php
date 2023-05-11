@@ -32,12 +32,13 @@
             labels: {
                 formatter: (value) => {
                     console.log(value)
+                    if(value){
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
                     return value; // Afficher le label
                 } else {
                     return ''; // Ne pas afficher le label
-                }
+                }}
             }
         },
             
