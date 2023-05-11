@@ -32,7 +32,7 @@
             categories: {!! $chart->xAxis() !!},
             @if($chart->format())
             labels: {
-                format: {!! $chart->xAxis() !!},
+                format: {!! $chart->format() !!},
             },
             @endif
 
@@ -44,7 +44,7 @@
         @if($chart->formatLabel())
         tooltip: {
           x: {
-            format: 'dd MMM yyyy HH:mm'
+            format: {!! $chart->formatLabel() !!},
           }
         },
         @endif
