@@ -31,9 +31,10 @@
             categories: {!! $chart->xAxis() !!},
             tooltip: {
                 formatter: function(val, opts) {
-                    console.log(value)
-                return val + "..."
-            }},
+                    console.log(value, opts)
+                return val 
+            }
+        },
             labels: {
                 formatter: (value) => {
                     
