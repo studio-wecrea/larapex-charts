@@ -34,9 +34,11 @@
                     if(value){
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
-                    return value; // Afficher le label
+                    return `<span style="color: 'black'">${value}</span>`
+                    // Afficher le label
                 } else {
-                    return ''; // Ne pas afficher le label
+                    return `<span style="color: 'white' ">${value}</span>`
+; // Ne pas afficher le label
                 }}
             },
         },
