@@ -39,7 +39,8 @@ class LarapexChart
     protected $sparkline;
     protected $options;
     protected $tickAmount;
-    protected $tickInterval;
+    protected $format;
+    protected $formatLabel;
     private $chartLetters = 'abcdefghijklmnopqrstuvwxyz';
 
     /*
@@ -206,9 +207,15 @@ class LarapexChart
         return $this;
     }
 
-    public function setTickInterval(int $value) :LarapexChart
+    public function setFormat(string $format) :LarapexChart
     {
-        $this->tickInterval = $value;
+        $this->format = $format;
+        return $this;
+    }
+
+    public function setFormatLabel(string $format) :LarapexChart
+    {
+        $this->formatLabel = $format;
         return $this;
     }
 
@@ -436,9 +443,17 @@ class LarapexChart
     /**
      * @return int
      */
-    public function tickInterval()
+    public function format()
     {
-        return $this->tickInterval;
+        return $this->format;
+    }
+
+    /**
+     * @return int
+     */
+    public function formatLabel()
+    {
+        return $this->formatLabel;
     }
 
     /**
