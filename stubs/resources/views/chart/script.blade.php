@@ -29,6 +29,15 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
+            ticks:{
+                callback:(value,index,values)=>{
+                    if (value.split(":")[1] === "00") {
+                    return value; // Afficher le label
+                    } else {
+                    return ''; // Ne pas afficher le label
+                    }
+                }
+            },
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
             @endif
