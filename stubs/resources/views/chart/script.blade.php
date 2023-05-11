@@ -28,14 +28,10 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         xaxis: {
-            categories: [
-    "2022-03-10 12:00",
-    "2022-03-10 12:05",
-    "2022-03-10 13:00",
-    "2022-03-10 13:15"
-  ],
+            categories: {!! $chart->xAxis() !!},
             labels: {
                 formatter: (value) => {
+                    console.log(value)
                 if (value.split(":")[1] === "00") {
                     return value; // Afficher le label
                 } else {
