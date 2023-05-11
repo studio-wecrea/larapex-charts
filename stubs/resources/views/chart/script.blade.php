@@ -29,13 +29,6 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
-            tickCallback: function (value, index, array) {
-                // Vérifier si la minute est égale à "00"
-                if (value.split(":")[1] === "00") {
-                    return value; // Afficher le label
-                } else {
-                    return ''; // Ne pas afficher le label
-                },
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
             @endif
