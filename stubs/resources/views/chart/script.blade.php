@@ -30,16 +30,8 @@
         xaxis: {
             categories: {!! $chart->xAxis() !!},
             labels: {
-                formatter: (value) => { 
-                    if(value){
-                    myArray = value.split(":")
-                if (myArray[1] === "00") {
-                    return value; // Afficher le label
-                } else {
-                    return ''; // Ne pas afficher le label
-                }}
+                format: 'HH',
             },
-        },
         
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
