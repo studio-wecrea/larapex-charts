@@ -33,7 +33,7 @@
                 formatter: function(val, opts) {
                     console.log(value)
                 return val + "..."
-            }
+            },
             labels: {
                 formatter: (value) => {
                     
