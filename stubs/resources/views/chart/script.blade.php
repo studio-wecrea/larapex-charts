@@ -29,6 +29,20 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
+            type: 'time',
+            time: {
+                    minUnit: 'hour', // smallest time format
+
+                    displayFormats: {
+                        minute: "HH:mm",
+                        hour: "dd/MM HH:mm",
+                        day: "dd/MM",
+                        week: "dd/MM",
+                        month: "MMMM yyyy",
+                        quarter: 'MMMM yyyy',
+                        year: "yyyy",
+                    }
+                }
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
             @endif
