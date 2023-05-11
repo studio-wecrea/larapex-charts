@@ -28,7 +28,7 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         xaxis: {
-            type: 'datetime'
+            type: 'datetime',
             categories: {!! $chart->xAxis() !!},
             labels: {
                 format: 'HH',
