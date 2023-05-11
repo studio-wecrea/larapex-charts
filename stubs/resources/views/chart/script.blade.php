@@ -30,7 +30,7 @@
         xaxis: {
             categories: {!! $chart->xAxis() !!},
             labels: {
-                formatter: function (value) {
+                formatter: function (value,index,values) {
                 if (value.split(":")[1] === "00") {
                     return value; // Afficher le label
                 } else {
