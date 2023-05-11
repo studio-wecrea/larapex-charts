@@ -441,7 +441,7 @@ class LarapexChart
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function format()
     {
@@ -449,7 +449,7 @@ class LarapexChart
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function formatLabel()
     {
