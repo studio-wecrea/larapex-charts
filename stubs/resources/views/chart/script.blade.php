@@ -36,20 +36,11 @@
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
                     return value; // Afficher le label
-                } 
-            }
-            },
-            tooltip: {
-                formatter: function(val) {
-                    return val 
-                    }
+                } else {
+                    return ''; // Ne pas afficher le label
+                }}
             },
         },
-        tooltip: {
-            x: {
-              formatter: (v) => `Date ${this.categories[v]}%`
-            }},
-            
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
             @endif
