@@ -31,7 +31,7 @@
             type: 'datetime',
             categories: {!! $chart->xAxis() !!},
             labels: {
-                format: 'HH',
+                format: 'HH:mm',
             },
         
             @if($chart->tickAmount())
@@ -40,6 +40,11 @@
             @if($chart->tickInterval()) // Since we want 6 intervals, set tickAmount to 7 (including both ends)
             tickInterval: {!! $chart->tickInterval() !!} 
             @endif
+        },
+        tooltip: {
+          x: {
+            format: 'dd MMM yyyy HH:mm'
+          }
         },
         grid: {!! $chart->grid() !!},
         markers: {!! $chart->markers() !!},
