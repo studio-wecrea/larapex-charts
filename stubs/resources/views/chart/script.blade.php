@@ -30,13 +30,14 @@
         xaxis: {
             categories: {!! $chart->xAxis() !!},
             labels: {
-                formatter: function (value,index,values) {
-                if (value.split(":")[1] === "00") {
-                    return value; // Afficher le label
+                formatter: function () {
+                if (this.value.split(":")[1] === "00") {
+                    return this.value; // Afficher le label
                 } else {
                     return ''; // Ne pas afficher le label
                 }
-            }},
+            }
+        },
             
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
