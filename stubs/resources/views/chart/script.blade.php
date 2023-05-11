@@ -29,9 +29,14 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
+            tooltip: {
+                formatter: function(val, opts) {
+                    console.log(value)
+                return val + "..."
+            }
             labels: {
                 formatter: (value) => {
-                    console.log(value)
+                    
                     if(value){
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
