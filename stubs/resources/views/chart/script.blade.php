@@ -31,7 +31,6 @@
             categories: {!! $chart->xAxis() !!},
             labels: {
                 formatter: (value) => {
-                    
                     if(value){
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
@@ -40,16 +39,6 @@
                     return ''; // Ne pas afficher le label
                 }}
             },
-        },
-        tooltip: {
-                formatter: (val, opts) => {
-                    if(value)
-                    {
-                        console.log(value, opts)
-                return value 
-                    }
-                    
-            }
         },
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
