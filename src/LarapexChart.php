@@ -38,6 +38,8 @@ class LarapexChart
     protected $dataLabels;
     protected $sparkline;
     protected $options;
+    protected $tickAmount;
+    protected $tickInterval;
     private $chartLetters = 'abcdefghijklmnopqrstuvwxyz';
 
     /*
@@ -52,7 +54,6 @@ class LarapexChart
         $this->horizontal = json_encode(['horizontal' => false]);
         $this->colors = json_encode(config('larapex-charts.colors'));
         $this->setXAxis([]);
-        $this->setOption();
         $this->grid = json_encode(['show' => false]);
         $this->markers = json_encode(['show' => false]);
         $this->toolbar = json_encode(['show' => false]);
@@ -199,16 +200,17 @@ class LarapexChart
         return $this;
     }
 
-    public function setOption() :LarapexChart
+    public function setTickAmount(int $value) :LarapexChart
     {
-        $this->options = json_encode(['scales'=>['x' => [
-            'type'=> 'time',
-            'time' => [
-                'unit'=> 'hour']
-            ]]]);
+        $this->tickAmount = $value;
         return $this;
     }
-    
+
+    public function setTickInterval(int $value) :LarapexChart
+    {
+        $this->tickInterval = $value;
+        return $this;
+    }
 
     public function setGrid($color = '#e5e5e5', $opacity = 0.1) :LarapexChart
     {
@@ -424,14 +426,21 @@ class LarapexChart
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function option()
+    public function tickAmount()
     {
-        return $this->options;
+        return $this->tickAmount;
     }
 
-    
+    /**
+     * @return int
+     */
+    public function tickInterval()
+    {
+        return $this->tickInterval;
+    }
+
     /**
      * @return false|string
      */

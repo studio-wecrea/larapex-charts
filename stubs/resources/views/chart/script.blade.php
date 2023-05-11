@@ -29,10 +29,12 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
-            min: 0,
-            max: 360,
-            tickAmount: 7, // Since we want 6 intervals, set tickAmount to 7 (including both ends)
+            @if($chart->tickAmount())
+            tickAmount: 7,
+            @endif
+            if($chart->tickInterval()) // Since we want 6 intervals, set tickAmount to 7 (including both ends)
             tickInterval: 60 
+            @endif
         },
         grid: {!! $chart->grid() !!},
         markers: {!! $chart->markers() !!},
