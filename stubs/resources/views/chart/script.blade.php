@@ -31,8 +31,9 @@
             categories: {!! $chart->xAxis() !!},
             labels: {
                 formatter: (value) => {
-                    console.log(typeof value)
-                if (value.split(":")[1] === "00") {
+                    console.log(value)
+                    myArray = value.split(":")
+                if (myArray[1] === "00") {
                     return value; // Afficher le label
                 } else {
                     return ''; // Ne pas afficher le label
