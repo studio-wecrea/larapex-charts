@@ -34,10 +34,10 @@
                     if(value){
                     myArray = value.split(":")
                 if (myArray[1] === "00") {
-                    return `<span style="color: 'black'">${value}</span>`
+                    return value
                     // Afficher le label
                 } else {
-                    return `<span style="color: 'white' ">${value}</span>`
+                    return null
 ; // Ne pas afficher le label
                 }}
             },
