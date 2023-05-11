@@ -39,8 +39,17 @@
                 } else {
                     return ''; // Ne pas afficher le label
                 }}
-            }
+            },
+            tooltip: {
+                formatter: function(val) {
+                    return val 
+                    }
+            },
         },
+        tooltip: {
+            x: {
+              formatter: (v) => `Date ${this.categories[v]}%`
+            }},
             
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
