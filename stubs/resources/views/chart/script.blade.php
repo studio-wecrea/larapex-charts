@@ -29,16 +29,6 @@
         },
         xaxis: {
             categories: {!! $chart->xAxis() !!},
-            tooltip: {
-                formatter: function(val, opts) {
-                    if(value)
-                    {
-                        console.log(value, opts)
-                return value 
-                    }
-                    
-            }
-        },
             labels: {
                 formatter: (value) => {
                     
@@ -50,6 +40,16 @@
                     return ''; // Ne pas afficher le label
                 }}
             },
+        },
+        tooltip: {
+                formatter: (val, opts) => {
+                    if(value)
+                    {
+                        console.log(value, opts)
+                return value 
+                    }
+                    
+            }
         },
             @if($chart->tickAmount())
             tickAmount: {!! $chart->tickAmount() !!},
