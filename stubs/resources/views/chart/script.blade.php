@@ -31,6 +31,7 @@
             categories: {!! $chart->xAxis() !!},
             ticks:{
                 callback:(value,index,values)=>{
+                    console.log(value);
                     if (value.split(":")[1] === "00") {
                     return value; // Afficher le label
                     } else {
