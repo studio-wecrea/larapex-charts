@@ -33,6 +33,7 @@
             @if($chart->format())
             labels: {
                 format: '{!! $chart->format() !!}',
+                datetimeUTC:false,
             },
             @endif
 
