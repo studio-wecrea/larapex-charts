@@ -6,10 +6,11 @@
     const datesFormatees = [];
 
     dates.forEach(date => {
-        const dateFormatee = moment(date).format('{!! $chart->format() !!}');
+        const dateFormatee = moment(date);
         datesFormatees.push(dateFormatee);
     });
-    console.log(datesFormatees);
+
+    {!! $chart->xAxis() !!} = datesFormatees;
 
     var options =
     {
@@ -41,7 +42,7 @@
         },
         xaxis: {
             type: 'datetime',
-            categories: datesFormatees,
+            categories: {!! $chart->xAxis() !!},
             @if($chart->format())
             labels: {
                 format: '{!! $chart->format() !!}',
