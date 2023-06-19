@@ -31,12 +31,13 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         xaxis: {
-            
+            type: 'datetime',
             categories: {!! $chart->xAxis() !!},
+            tickPlacement: 'on',
             @if($chart->format())
             labels: {
                 formatter: function(value, timestamp, opts) {
-                    console.log(timestamp);
+                    console.log(value);
                     return moment.utc(value).format('{!! $chart->format() !!}');
                 },
                 //format: '{!! $chart->format() !!}',
