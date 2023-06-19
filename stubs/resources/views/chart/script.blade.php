@@ -61,7 +61,7 @@
     "Sep", "Oct", "Nov", "Déc"
     ];
 
-    console.log("{!! $chart->xAxis() !!}");
+    console.log({{ $chart->xAxis() }});
     var chart = new ApexCharts(document.querySelector("#{!! $chart->id() !!}"), options);
     
     chart.render();
