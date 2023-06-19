@@ -2,6 +2,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
 <script>
     moment.locale('fr')
+    dates = {!! $chart->xAxis() !!};
+    const datesFormatees = [];
+
+    dates.forEach(date => {
+        const dateFormatee = moment(date).format('{!! $chart->format() !!}');
+        datesFormatees.push(dateFormatee);
+    });
+    console.log(datesFormatees);
+
     var options =
     {
         chart: {
@@ -32,7 +41,7 @@
         },
         xaxis: {
             type: 'datetime',
-            categories: {!! $chart->xAxis() !!},
+            categories: datesFormatees,
             @if($chart->format())
             labels: {
                 format: '{!! $chart->format() !!}',
