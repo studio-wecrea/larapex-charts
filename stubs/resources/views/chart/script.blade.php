@@ -31,7 +31,7 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         xaxis: {
-            type: 'datetime',
+            
             categories: {!! $chart->xAxis() !!},
             @if($chart->format())
             labels: {
