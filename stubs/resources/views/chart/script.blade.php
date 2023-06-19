@@ -1,17 +1,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
 <script>
-    moment.locale('fr')
-    dates = {!! $chart->xAxis() !!};
-    const datesFormatees = [];
-
-    dates.forEach(date => {
-        const dateFormatee = moment(date).format('{!! $chart->format() !!}');
-        datesFormatees.push(dateFormatee);
-    });
-
-    {!! $chart->xAxis() !!} = datesFormatees
-
+    moment.locale('fr');
     var options =
     {
         chart: {
@@ -45,6 +35,10 @@
             categories: {!! $chart->xAxis() !!},
             @if($chart->format())
             labels: {
+                formatter: function(value, timestamp, opts) {
+                    return moment(new Date(timestamp)).format('{!! $chart->format() !!}');
+                }
+                //format: '{!! $chart->format() !!}',
                 datetimeUTC: true,
             },
             @endif
