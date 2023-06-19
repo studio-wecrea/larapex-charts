@@ -1,3 +1,5 @@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
 <script>
     var options =
     {
@@ -32,7 +34,7 @@
             categories: {!! $chart->xAxis() !!},
             @if($chart->format())
             labels: {
-                format: '{!! $chart->format() !!}',
+                format: mom.locale('fr').format('{!! $chart->format() !!}'),
                 datetimeUTC: true,
             },
             @endif
@@ -56,12 +58,7 @@
         @endif
     }
 
-    var mois = [
-    "Jan", "Fév", "Mar", "Avr", "Mai", "Juin", "Juil", "Aoû",
-    "Sep", "Oct", "Nov", "Déc"
-    ];
-
-    console.log({{ $chart->xAxis() }});
+    
     var chart = new ApexCharts(document.querySelector("#{!! $chart->id() !!}"), options);
     
     chart.render();
