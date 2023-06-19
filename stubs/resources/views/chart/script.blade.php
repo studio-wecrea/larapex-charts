@@ -36,7 +36,7 @@
             @if($chart->format())
             labels: {
                 formatter: function(value, timestamp, opts) {
-                    return moment(timestamp).utc().format('{!! $chart->format() !!}');
+                    return moment.utc(timestamp).format('{!! $chart->format() !!}');
                 },
                 //format: '{!! $chart->format() !!}',
                 datetimeUTC: true,
