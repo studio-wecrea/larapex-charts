@@ -36,12 +36,8 @@
             tickPlacement: 'on',
             @if($chart->format())
             labels: {
-                formatter: function(value, timestamp, opts) {
-                    console.log(value);
-                    return moment.utc(value).format('{!! $chart->format() !!}');
-                },
                 //format: '{!! $chart->format() !!}',
-                datetimeUTC: true,
+                datetimeUTC: false,
             },
             @endif
 
