@@ -31,7 +31,7 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         yaxis: {
-            forceNiceScale: true
+            min: 0
         },
         xaxis: {
             type: 'datetime',
