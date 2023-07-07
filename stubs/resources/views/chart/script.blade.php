@@ -30,6 +30,9 @@
             text: '{!! $chart->subtitle() !!}',
             align: '{!! $chart->subtitlePosition() !!}'
         },
+        yaxis: {
+            forceNiceScale: true
+        },
         xaxis: {
             type: 'datetime',
             categories: {!! $chart->xAxis() !!},
