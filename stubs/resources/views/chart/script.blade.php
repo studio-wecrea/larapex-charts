@@ -52,7 +52,8 @@
             align: 'center',
             verticalAlign: 'top',
             offsetX: 0,
-            offsetY: 10
+            offsetY: 10,
+            visible: true,
             }
             }],
             @endif
