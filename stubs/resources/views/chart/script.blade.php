@@ -1,6 +1,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
 <script>
+    function median(array) {
+  array.sort((a, b) => a - b);
+  const middleIndex = Math.floor(array.length / 2);
+  return array[middleIndex];
+}
+
     moment.locale('fr');
     var options =
     {
@@ -40,7 +46,7 @@
         yaxis: {
             @if($chart->dashed())
             annotations: [{
-            y: Math.median({!! $chart->dataset() !!}),
+            y: median({!! $chart->dataset() !!}),
             label: {
             text: "Median",
             align: 'center',
