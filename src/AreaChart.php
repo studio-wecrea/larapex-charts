@@ -19,4 +19,9 @@ class AreaChart extends LarapexChart implements MustAddComplexData
     {
         return $this->addData($name, $data);
     }
+
+    public function addAreaDashed(string $name, array $data) :AreaChart
+    {
+        return $this->addDataDashed($name, $data);
+    }
 }

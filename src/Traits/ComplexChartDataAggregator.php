@@ -17,4 +17,19 @@ trait ComplexChartDataAggregator
 
         return $this;
     }
+
+    public function addDataDashed(string $name, array $data) :self
+    {
+        $this->dataset = json_decode($this->dataset);
+
+        $this->dataset[] = [
+            'name' => $name,
+            'data' => $data
+        ];
+
+        $this->dataset = json_encode($this->dataset);
+
+        $this->dashed = true;
+        return $this;
+    }
 }

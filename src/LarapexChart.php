@@ -41,6 +41,7 @@ class LarapexChart
     protected $tickAmount;
     protected $format;
     protected $formatLabel;
+    protected $dashed;
     private $chartLetters = 'abcdefghijklmnopqrstuvwxyz';
 
     /*
@@ -192,6 +193,12 @@ class LarapexChart
     public function setLabels(array $labels) :LarapexChart
     {
         $this->labels = $labels;
+        return $this;
+    }
+
+    public function setDashed(bool $dashed) 
+    {
+        $this->dashed = $dashed;
         return $this;
     }
 
@@ -446,6 +453,11 @@ class LarapexChart
     public function format()
     {
         return $this->format;
+    }
+
+    public function dashed()
+    {
+        return $this->dashed;
     }
 
     /**
