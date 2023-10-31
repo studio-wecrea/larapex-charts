@@ -40,7 +40,7 @@
         yaxis: {
             @if($chart->dashed())
             annotations: [{
-            y: Math.median(series[0].data),
+            y: Math.median(option.series[0].data),
             label: {
             text: "Median",
             align: 'center',
