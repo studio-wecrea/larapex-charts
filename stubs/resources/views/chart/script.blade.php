@@ -11,7 +11,6 @@
     var options =
     {
         chart: {
-            type: '{!! $chart->type() !!}',
             height: {!! $chart->height() !!},
             width: '{!! $chart->width() !!}',
             toolbar: {!! $chart->toolbar() !!},
