@@ -20,11 +20,13 @@
         colors: {!! $chart->colors() !!},
         series: {!! $chart->dataset() !!},
         dataLabels: {!! $chart->dataLabels() !!},
+        @if($chart->dashed())
         stroke: {
-                width: [5, 7, 5],
+                width: 1,
                 curve: "straight",
-                dashArray: [0, 8, 5]
+                dashArray: [0, 1, 1]
         },
+        @endif
         @if($chart->labels())
             labels: {!! json_encode($chart->labels(), true) !!},
         @endif
