@@ -58,6 +58,7 @@
             @endif
             min: 0
         },
+        fillOpacity:0,
         xaxis: {
             type: 'datetime',
             categories: {!! $chart->xAxis() !!},
