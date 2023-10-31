@@ -22,9 +22,9 @@
         dataLabels: {!! $chart->dataLabels() !!},
         @if($chart->dashed())
         stroke: {
-                width: [5, 3],
+                width: [5, 5],
                 curve: "straight",
-                dashArray: [0, 1, 1]
+                dashArray: [0, 8, 5]
         },
         @endif
         @if($chart->labels())
@@ -38,6 +38,18 @@
             align: '{!! $chart->subtitlePosition() !!}'
         },
         yaxis: {
+            @if($chart->dashed())
+            annotations: [{
+            y: Math.median({!! $chart->dataset() !!}),
+            label: {
+            text: "Median",
+            align: 'center',
+            verticalAlign: 'top',
+            offsetX: 0,
+            offsetY: 10
+            }
+            }],
+            @endif
             min: 0
         },
         xaxis: {
