@@ -58,7 +58,9 @@
             @endif
             min: 0
         },
-        fillOpacity:0,
+        fill: {
+            type: "solid"
+        },
         xaxis: {
             type: 'datetime',
             categories: {!! $chart->xAxis() !!},
