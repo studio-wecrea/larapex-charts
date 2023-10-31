@@ -22,7 +22,7 @@
         dataLabels: {!! $chart->dataLabels() !!},
         @if($chart->dashed())
         stroke: {
-                width: 1,
+                width: [5, 3],
                 curve: "straight",
                 dashArray: [0, 1, 1]
         },
