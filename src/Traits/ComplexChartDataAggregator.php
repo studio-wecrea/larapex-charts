@@ -4,7 +4,7 @@ namespace ArielMejiaDev\LarapexCharts\Traits;
 
 trait ComplexChartDataAggregator
 {
-    public function addData(string $name, array $data,string $type) :self
+    public function addData(string $name, array $data,string $type) 
     {
         $this->dataset = json_decode($this->dataset);
 
@@ -19,7 +19,7 @@ trait ComplexChartDataAggregator
         return $this;
     }
 
-    public function addDataDashed(string $name, array $data,string $type) :self
+    public function addDataDashed(string $name, array $data,string $type) 
     {
         $this->dataset = json_decode($this->dataset);
 
