@@ -18,7 +18,7 @@
             fontFamily: '{!! $chart->fontFamily() !!}',
             foreColor: '{!! $chart->foreColor() !!}',
             sparkline: {!! $chart->sparkline() !!},
-            type: 'area'
+            
         },
         plotOptions: {
             bar: {!! $chart->horizontal() !!}
@@ -28,8 +28,8 @@
         dataLabels: {!! $chart->dataLabels() !!},
         
         stroke: {
-            curve: "smooth",
-            width: 2,
+            curve: "straight",
+            width: 3,
             @if($chart->dashed())
                 width: [2, 5],
                 dashArray: [0, 8, 5]
@@ -63,7 +63,8 @@
             min: 0
         },
         fill: {
-            type: "solid"
+            type: "gradient",
+
         },
         xaxis: {
             type: 'datetime',
