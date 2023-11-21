@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'font_family' => 'Montserrat, sans-serif',
+    'font_family' => 'Helvetica, Arial, sans-serif',
 
     'font_color' => '#373d3f',
 
