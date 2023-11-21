@@ -18,6 +18,7 @@
             fontFamily: '{!! $chart->fontFamily() !!}',
             foreColor: '{!! $chart->foreColor() !!}',
             sparkline: {!! $chart->sparkline() !!}
+            type: 'area'
         },
         plotOptions: {
             bar: {!! $chart->horizontal() !!}
