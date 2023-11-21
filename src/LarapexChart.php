@@ -266,10 +266,10 @@ class LarapexChart
 
         $this->stroke = json_encode([
             'show'    =>  true,
-            'curve' =>'straight',
+            'curve' => $curve,
             'width'   =>  $width,
             'colors'  =>  $colors,
-            'dasharray' => $dasharray,
+            'dashArray' => $dasharray,
         ]);
         return $this;
     }
