@@ -27,15 +27,6 @@
         series: {!! $chart->dataset() !!},
         dataLabels: {!! $chart->dataLabels() !!},
         
-        stroke: {
-            curve: "straight",
-            width: 2,
-            @if($chart->dashed())
-                width: [1, 5],
-                dashArray: [0, 8, 5],
-            @endif
-        },
-        
         @if($chart->labels())
             labels: {!! json_encode($chart->labels(), true) !!},
         @endif
@@ -64,10 +55,6 @@
         },
         fill: {
             type: "gradient",
-            gradient: {
-                opacityFrom: 0.6,
-                opacityTo: 0.6,
-            },
         },
         xaxis: {
             type: 'datetime',
