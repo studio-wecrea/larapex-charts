@@ -29,10 +29,10 @@
         
         stroke: {
             curve: "straight",
-            width: 3,
+            width: 2,
             @if($chart->dashed())
-                width: [2, 5],
-                dashArray: [0, 8, 5]
+                width: [1, 5],
+                dashArray: [0, 8, 5],
             @endif
         },
         
@@ -64,7 +64,10 @@
         },
         fill: {
             type: "gradient",
-
+            gradient: {
+                opacityFrom: 0.6,
+                opacityTo: 0.6,
+            },
         },
         xaxis: {
             type: 'datetime',
