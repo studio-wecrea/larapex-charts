@@ -17,7 +17,7 @@
             zoom: {!! $chart->zoom() !!},
             fontFamily: '{!! $chart->fontFamily() !!}',
             foreColor: '{!! $chart->foreColor() !!}',
-            sparkline: {!! $chart->sparkline() !!}
+            sparkline: {!! $chart->sparkline() !!},
             type: 'area'
         },
         plotOptions: {
@@ -26,13 +26,16 @@
         colors: {!! $chart->colors() !!},
         series: {!! $chart->dataset() !!},
         dataLabels: {!! $chart->dataLabels() !!},
-        @if($chart->dashed())
+        
         stroke: {
+            curve: "smooth",
+            width: 2,
+            @if($chart->dashed())
                 width: [2, 5],
-                curve: "smooth",
                 dashArray: [0, 8, 5]
+            @endif
         },
-        @endif
+        
         @if($chart->labels())
             labels: {!! json_encode($chart->labels(), true) !!},
         @endif
