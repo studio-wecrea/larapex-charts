@@ -54,7 +54,8 @@
             min: 0
         },
         fill: {
-            type: "gradient",
+            type:'solid',
+            opacity: [0.35, 1],
         },
         xaxis: {
             type: 'datetime',

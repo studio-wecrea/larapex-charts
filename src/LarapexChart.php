@@ -258,7 +258,7 @@ class LarapexChart
         return $this;
     }
 
-    public function setStroke(int $width, string $curve="straight", array $colors = [], array $dasharray) :LarapexChart
+    public function setStroke(int|array $width, string $curve="straight", array $colors = [], array $dasharray) :LarapexChart
     {
         if(empty($colors)) {
             $colors = config('larapex-charts.colors');
@@ -269,7 +269,7 @@ class LarapexChart
             'curve' => $curve,
             'width'   =>  $width,
             'colors'  =>  $colors,
-            'dashArray' => $dasharray,
+            'dashrray' => $dasharray,
         ]);
         return $this;
     }
