@@ -269,7 +269,7 @@ class LarapexChart
             'curve' => $curve,
             'width'   =>  $width,
             'colors'  =>  $colors,
-            'dashrray' => $dasharray,
+            'dashArray' => $dasharray,
         ]);
         return $this;
     }
